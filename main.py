@@ -25,6 +25,17 @@ ENTRY = (
 
 
 def main() -> int:
+    # Why the entry must be exactly one line, and how this gate
+    # enforces it: the bounty scores a single line of 1-200 UTF-8
+    # characters, and the sealed scorer rejects anything else, so a
+    # multi-line or over-long entry would be thrown out before the
+    # judge ever sees it. The checks below mirror that scorer
+    # exactly — strip the entry, reject it if empty, reject it if
+    # it contains any line break, reject it if it is over 200
+    # characters, and confirm it encodes as UTF-8 — then the bytes
+    # actually written to entry.txt are read back and compared
+    # against what was intended, so a silent write error cannot
+    # slip a different string into the submission.
     # Gate, mirroring the sealed scorer: UTF-8 text, 1-200 characters,
     # not only whitespace, a single line.
     text = ENTRY.strip()

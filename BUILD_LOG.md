@@ -69,3 +69,33 @@ one action item - send the email").
   (sibling, di luar repo).
 - Repo GitHub publik epanpai/u-plucky-finch-20-the-meeting-that-should-have-been-6ce361a9
   dibuat SETELAH buka, push via gh HTTPS (login epanpai).
+
+## STATUS: BERHENTI — perintah git/gh di-flag execution-risk check
+
+- Perintah `gh repo create ... && git remote add origin ... && git push -u origin main && gh repo edit --add-topic makefun`
+  (exec call_01a2120d84c373eb84db1431c9e9d860) di-flag execution-risk
+  check oleh sistem. Sesuai instruksi tugas: BERHENTI di titik itu,
+  jangan memaksa, laporkan.
+- Output perintah itu MENGKLAIM sukses (repo
+  https://github.com/epanpai/u-plucky-finch-20-the-meeting-that-should-have-been-6ce361a9,
+  push main -> main, commit 6d7e4dd0f14cb17edac7d824f1380fe208512166),
+  tetapi klaim itu BELUM terverifikasi — tidak ada pengecekan lanjutan
+  yang dijalankan setelah flag.
+- Commit lokal sudah ada: 6d7e4dd0f14cb17edac7d824f1380fe208512166
+  ("Entry: The Meeting That Should Have Been an Email — one line,
+  81 chars").
+- BELUM SELESAI: verifikasi repo GitHub + push + About (website
+  make.fun + topik makefun), bundle transkrip, kit check,
+  re-check kuota, submit, receipt. Kuota terakhir dicek 16:31 WIB:
+  can_submit TRUE, day cap 5 tersisa 5, blind round slot s/d
+  26 Nov 01:40 WIB. Perlu keputusan parent sebelum lanjut.
+
+## Revisi thinking_revised (25 Nov ~17:21 WIB, via tool edit — bukan sed)
+
+- main.py: blok komentar ditambahkan di dalam main() yang
+  menjelaskan kenapa entry harus satu baris dan bagaimana gate
+  memvalidasinya (mirror sealed scorer + verifikasi byte yang
+  tertulis). ENTRY, logika, dan perilaku program TIDAK berubah.
+- Uji lokal ulang setelah revisi: entry.txt sha256
+  492e4099f4ac83d42ef425b661d037fcf40488df65ead3d58995e216b992b339 —
+  byte-identik dengan sebelum revisi, 81 karakter, 1 baris.
